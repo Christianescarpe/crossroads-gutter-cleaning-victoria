@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --navy-dark: #081C38;
+  --navy-main: #0B2545;
+  --navy-light: #13335F;
+  --blue-primary: #1363DF;
+  --blue-hover: #0D47A1;
+  --blue-light: #EBF3FF;
+  --yellow-primary: #FDB813;
+  --yellow-hover: #E5A30B;
+  --gray-bg: #F4F7FC;
+  --gray-card: #F8FAFC;
+  --gray-border: #E2E8F0;
+  --text-dark: #0F172A;
+  --text-muted: #5A6578;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom design utilities */
+.bg-navy-dark { background-color: var(--navy-dark); }
+.bg-navy-main { background-color: var(--navy-main); }
+.bg-navy-light { background-color: var(--navy-light); }
+.bg-blue-primary { background-color: var(--blue-primary); }
+.bg-blue-light { background-color: var(--blue-light); }
+.bg-yellow-primary { background-color: var(--yellow-primary); }
+.bg-gray-custom { background-color: var(--gray-bg); }
+
+.text-navy-dark { color: var(--navy-dark); }
+.text-navy-main { color: var(--navy-main); }
+.text-blue-primary { color: var(--blue-primary); }
+.text-yellow-primary { color: var(--yellow-primary); }
+.text-custom-muted { color: var(--text-muted); }
+
+.border-navy-dark { border-color: var(--navy-dark); }
+.border-blue-primary { border-color: var(--blue-primary); }
+.border-yellow-primary { border-color: var(--yellow-primary); }
+
+/* HTML content styling from sheet */
+.prose-custom h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #081C38;
+  margin-bottom: 1.25rem;
+}
+.prose-custom h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #081C38;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.prose-custom h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #0B2545;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.prose-custom p {
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+.prose-custom ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: #475569;
+}
+.prose-custom li {
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
+  font-size: 1.02rem;
+}
+.prose-custom a {
+  color: #1363DF;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.prose-custom a:hover {
+  color: #081C38;
+}
+.prose-custom strong {
+  color: #0F172A;
+}
