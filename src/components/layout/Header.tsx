@@ -166,12 +166,13 @@ export default function Header() {
               <span>+13615791699</span>
             </a>
 
-            <Link
-              href="/contact#estimate-form"
-              className="bg-[#1363DF] hover:bg-[#0D47A1] text-white text-sm font-bold px-5 py-2.5 rounded-lg shadow-md shadow-blue-500/20 hover:shadow-lg transition-all"
+            <a
+              href="tel:+13615791699"
+              className="bg-[#1363DF] hover:bg-[#0D47A1] text-white text-sm font-bold px-5 py-2.5 rounded-lg shadow-md shadow-blue-500/20 hover:shadow-lg transition-all flex items-center gap-2"
             >
-              Request An Estimate
-            </Link>
+              <PhoneCall className="w-4 h-4 text-yellow-400" />
+              <span>Call Now</span>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -269,13 +270,14 @@ export default function Header() {
           </Link>
 
           <div className="pt-2">
-            <Link
-              href="/contact#estimate-form"
-              className="block w-full text-center bg-[#1363DF] hover:bg-[#0D47A1] text-white font-bold py-3 rounded-xl shadow-md"
+            <a
+              href="tel:+13615791699"
+              className="flex items-center justify-center gap-2 w-full text-center bg-[#1363DF] hover:bg-[#0D47A1] text-white font-bold py-3 rounded-xl shadow-md"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Request An Estimate
-            </Link>
+              <PhoneCall className="w-4 h-4 text-yellow-400" />
+              <span>Call +13615791699</span>
+            </a>
           </div>
         </div>
       )}

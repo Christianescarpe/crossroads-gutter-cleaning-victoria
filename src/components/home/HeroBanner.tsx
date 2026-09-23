@@ -50,13 +50,13 @@ export default function HeroBanner({ page }: { page?: PageItem }) {
 
           {/* Dual Action Buttons */}
           <div className="flex flex-wrap items-center gap-4 mb-10">
-            <Link
-              href="#estimate-form"
+            <a
+              href="tel:+13615791699"
               className="bg-[#FDB813] hover:bg-[#E5A30B] text-gray-950 font-bold px-7 py-4 rounded-xl shadow-lg shadow-yellow-500/20 hover:scale-105 transition-all text-sm sm:text-base flex items-center gap-2"
             >
-              <span>Request An Estimate</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              <Phone className="w-4 h-4" />
+              <span>Call +13615791699</span>
+            </a>
 
             <Link
               href="/gutter-cleaning"

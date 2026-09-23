@@ -1,24 +1,12 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { Phone, MapPin, Clock, ArrowRight, CheckCircle2, ShieldCheck, ChevronRight, Check } from 'lucide-react';
+import { Phone, MapPin, Clock, ArrowRight, ShieldCheck, ChevronRight, Check } from 'lucide-react';
 import pagesData from '@/data/pages.json';
-import { SERVICE_URLS, extractH1, stripH1 } from '@/lib/data';
+import { extractH1, stripH1 } from '@/lib/data';
 
 const contactData = pagesData.find(p => p.url === '/contact')!;
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: 'Gutter Cleaning',
-    details: ''
-  });
-
-  const services = pagesData.filter(p => SERVICE_URLS.includes(p.url));
   const h1Text = extractH1(contactData.contentHtml, 'Contact Crossroads Gutter Cleaning Victoria');
   const cleanedContent = stripH1(contactData.contentHtml);
 
@@ -29,11 +17,6 @@ export default function ContactPage() {
     'Meticulous hand-cleaning process with full ground cleanup',
     'Convenient seasonal reminder programs'
   ];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
 
   return (
     <div className="bg-white">
@@ -68,121 +51,52 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
       </section>
 
-      {/* Floating Get In Touch Card matching Image 3 with 100% sheet content */}
+      {/* Floating Direct Phone Contact Card matching Image 3 - NO FORMS */}
       <section className="relative -mt-24 sm:-mt-32 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-20 mb-20">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 grid grid-cols-1 lg:grid-cols-12">
-          {/* Left Form (7 cols) */}
-          <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#081C38] tracking-tight mb-2">
-              Get In Touch
+          {/* Left Column: Direct Phone Information & Action (7 cols) */}
+          <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 space-y-6">
+            <span className="text-xs font-bold text-[#1363DF] uppercase tracking-wider block">
+              Call Us For Prompt Service
+            </span>
+
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#081C38] tracking-tight leading-tight">
+              Speak With A Local Gutter Specialist
             </h2>
-            <p className="text-xs sm:text-sm text-gray-500 mb-8 leading-relaxed">
-              Ready to protect your roofline and foundation before the next heavy South Texas rain? The team at Crossroads Gutter Cleaning Victoria is here to deliver dependable, prompt, and ladder-safe service.
+
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+              Ready to protect your roofline and foundation before the next heavy South Texas rain? The team at Crossroads Gutter Cleaning Victoria is here to deliver dependable, prompt, and ladder-safe service. We provide transparent estimates with zero hidden fees and offer convenient scheduling across Victoria and surrounding Crossroads communities.
             </p>
 
-            {submitted ? (
-              <div className="py-12 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-8 h-8" />
+            {/* Prominent Call Button Box */}
+            <div className="p-6 bg-[#F4F7FC] rounded-2xl border border-gray-200 space-y-4">
+              <span className="text-xs font-bold uppercase tracking-wider text-gray-500 block">
+                Primary Phone Number
+              </span>
+
+              <a
+                href="tel:+13615791699"
+                className="inline-flex items-center gap-3 text-2xl sm:text-3xl font-black text-[#1363DF] hover:text-[#081C38] transition"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#1363DF] text-white flex items-center justify-center shrink-0">
+                  <Phone className="w-6 h-6 text-yellow-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-[#081C38]">Message Sent Successfully</h3>
-                <p className="text-sm text-gray-600 max-w-md mx-auto">
-                  Thank you, {formData.name}. A specialist from Crossroads Gutter Cleaning Victoria will reach out shortly at {formData.phone} with your free upfront estimate.
-                </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="text-xs font-bold text-[#1363DF] underline cursor-pointer"
+                <span>+13615791699</span>
+              </a>
+
+              <div className="pt-2">
+                <a
+                  href="tel:+13615791699"
+                  className="w-full bg-[#081C38] hover:bg-[#1363DF] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition flex items-center justify-center gap-3 text-base cursor-pointer"
                 >
-                  Send another inquiry
-                </button>
+                  <Phone className="w-5 h-5 text-yellow-400" />
+                  <span>Call +13615791699 Now</span>
+                </a>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-gray-600 uppercase mb-1">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={e => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Your Full Name"
-                      className="w-full px-4 py-3 bg-[#F4F7FC] rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#1363DF] focus:bg-white transition"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-600 uppercase mb-1">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={e => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="Your Email Address"
-                      className="w-full px-4 py-3 bg-[#F4F7FC] rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#1363DF] focus:bg-white transition"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-gray-600 uppercase mb-1">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+1 (361) 579-1699"
-                      className="w-full px-4 py-3 bg-[#F4F7FC] rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#1363DF] focus:bg-white transition"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-600 uppercase mb-1">
-                      Select Your Services
-                    </label>
-                    <select
-                      value={formData.service}
-                      onChange={e => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#F4F7FC] rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#1363DF] focus:bg-white transition"
-                    >
-                      {services.map(s => (
-                        <option key={s.url} value={s.title}>
-                          {s.title}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-600 uppercase mb-1">
-                    Additional Details
-                  </label>
-                  <textarea
-                    rows={4}
-                    value={formData.details}
-                    onChange={e => setFormData({ ...formData, details: e.target.value })}
-                    placeholder="Tell us about your home, roofline, gutter issues, or preferred dates..."
-                    className="w-full px-4 py-3 bg-[#F4F7FC] rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#1363DF] focus:bg-white transition resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-[#081C38] hover:bg-[#1363DF] text-white font-bold py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 group cursor-pointer"
-                >
-                  <span>Submit Request</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </form>
-            )}
+            </div>
           </div>
 
-          {/* Right Vibrant Blue Card (5 cols) matching Image 3 with exact sheet content */}
+          {/* Right Column: Vibrant Blue Card (5 cols) matching Image 3 with exact sheet content */}
           <div className="lg:col-span-5 bg-[#1363DF] text-white p-6 sm:p-10 lg:p-12 flex flex-col justify-between">
             <div className="space-y-6">
               <span className="text-yellow-300 font-bold text-xs uppercase tracking-wider block">
@@ -257,7 +171,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Exact Sheet Content for Contact Page without duplicate H1 */}
+      {/* Exact Sheet Content for Contact Page */}
       <section className="py-16 bg-white border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div

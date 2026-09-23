@@ -47,13 +47,13 @@ export default function ServiceHero({ page }: { page: PageItem }) {
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
-            <Link
-              href="#service-estimate"
+            <a
+              href="tel:+13615791699"
               className="bg-[#FDB813] hover:bg-[#E5A30B] text-gray-950 font-bold px-7 py-3.5 rounded-xl shadow-lg transition text-sm sm:text-base flex items-center gap-2"
             >
-              <span>Get Free Estimate</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              <Phone className="w-4 h-4" />
+              <span>Call +13615791699</span>
+            </a>
 
             <a
               href="tel:+13615791699"
