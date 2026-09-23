@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Crossroads Gutter Cleaning Victoria"
+  },
+  verification: {
+    google: "f-d4jQMEOBObMxAFfHwLrj3eHarMjBRniLS25HzPhck"
   }
 };
 
@@ -63,6 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full scroll-smooth">
       <head>
+        <meta name="google-site-verification" content="f-d4jQMEOBObMxAFfHwLrj3eHarMjBRniLS25HzPhck" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
