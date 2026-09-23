@@ -55,23 +55,16 @@ export default function BlueEstimateSection({ defaultService }: { defaultService
                 <Phone className="w-8 h-8" />
               </div>
 
-              <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-1">
+              <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-4">
                 Direct Phone Line
               </span>
 
               <a
                 href="tel:+13615791699"
-                className="block text-2xl sm:text-3xl font-black text-[#081C38] hover:text-[#1363DF] transition mb-6"
-              >
-                +13615791699
-              </a>
-
-              <a
-                href="tel:+13615791699"
-                className="w-full bg-[#081C38] hover:bg-[#1363DF] text-white font-bold py-4 px-6 rounded-xl shadow-lg transition flex items-center justify-center gap-3 text-base cursor-pointer"
+                className="w-full bg-[#081C38] hover:bg-[#1363DF] text-white font-bold py-4 px-6 rounded-xl shadow-lg transition flex items-center justify-center gap-3 text-lg cursor-pointer"
               >
                 <Phone className="w-5 h-5 text-yellow-400" />
-                <span>Call +13615791699 Now</span>
+                <span>Call +13615791699</span>
               </a>
             </div>
           </div>

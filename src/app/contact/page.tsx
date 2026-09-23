@@ -69,30 +69,18 @@ export default function ContactPage() {
             </p>
 
             {/* Prominent Call Button Box */}
-            <div className="p-6 bg-[#F4F7FC] rounded-2xl border border-gray-200 space-y-4">
+            <div className="p-6 bg-[#F4F7FC] rounded-2xl border border-gray-200 space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-gray-500 block">
                 Primary Phone Number
               </span>
 
               <a
                 href="tel:+13615791699"
-                className="inline-flex items-center gap-3 text-2xl sm:text-3xl font-black text-[#1363DF] hover:text-[#081C38] transition"
+                className="w-full bg-[#081C38] hover:bg-[#1363DF] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition flex items-center justify-center gap-3 text-lg cursor-pointer"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#1363DF] text-white flex items-center justify-center shrink-0">
-                  <Phone className="w-6 h-6 text-yellow-400" />
-                </div>
-                <span>+13615791699</span>
+                <Phone className="w-5 h-5 text-yellow-400" />
+                <span>Call +13615791699</span>
               </a>
-
-              <div className="pt-2">
-                <a
-                  href="tel:+13615791699"
-                  className="w-full bg-[#081C38] hover:bg-[#1363DF] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition flex items-center justify-center gap-3 text-base cursor-pointer"
-                >
-                  <Phone className="w-5 h-5 text-yellow-400" />
-                  <span>Call +13615791699 Now</span>
-                </a>
-              </div>
             </div>
           </div>
 

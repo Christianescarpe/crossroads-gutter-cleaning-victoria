@@ -155,23 +155,13 @@ export default function Header() {
           </nav>
 
           {/* Desktop Right CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center">
             <a
               href="tel:+13615791699"
-              className="flex items-center gap-2 text-sm font-bold text-[#081C38] hover:text-[#1363DF] transition"
-            >
-              <div className="w-9 h-9 rounded-full bg-blue-50 text-[#1363DF] flex items-center justify-center">
-                <PhoneCall className="w-4 h-4" />
-              </div>
-              <span>+13615791699</span>
-            </a>
-
-            <a
-              href="tel:+13615791699"
-              className="bg-[#1363DF] hover:bg-[#0D47A1] text-white text-sm font-bold px-5 py-2.5 rounded-lg shadow-md shadow-blue-500/20 hover:shadow-lg transition-all flex items-center gap-2"
+              className="bg-[#1363DF] hover:bg-[#0D47A1] text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow-md shadow-blue-500/20 hover:shadow-lg transition-all flex items-center gap-2"
             >
               <PhoneCall className="w-4 h-4 text-yellow-400" />
-              <span>Call Now</span>
+              <span>+13615791699</span>
             </a>
           </div>
 
