@@ -1,7 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Phone, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { getHomePage, extractH1, PageItem } from '@/lib/data';
 
 export default function HeroBanner({ page }: { page?: PageItem }) {
@@ -48,7 +47,7 @@ export default function HeroBanner({ page }: { page?: PageItem }) {
             {currentData.metaDescription}
           </p>
 
-          {/* Dual Action Buttons */}
+          {/* Action Button */}
           <div className="flex flex-wrap items-center gap-4 mb-10">
             <a
               href="tel:+13615791699"
@@ -57,13 +56,6 @@ export default function HeroBanner({ page }: { page?: PageItem }) {
               <Phone className="w-4 h-4" />
               <span>Call +13615791699</span>
             </a>
-
-            <Link
-              href="/gutter-cleaning"
-              className="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-sm font-bold px-7 py-4 rounded-xl transition-all text-sm sm:text-base"
-            >
-              Our Services
-            </Link>
           </div>
 
           {/* Bullets directly from sheet content */}

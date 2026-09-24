@@ -54,13 +54,6 @@ export default function ServiceHero({ page }: { page: PageItem }) {
               <Phone className="w-4 h-4" />
               <span>Call +13615791699</span>
             </a>
-
-            <Link
-              href="/gutter-cleaning"
-              className="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold px-6 py-3.5 rounded-xl transition text-sm sm:text-base"
-            >
-              All Services
-            </Link>
           </div>
         </div>
       </div>
