@@ -7,8 +7,8 @@ import Footer from "@/components/layout/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://crossroadsguttercleaningvictoria.com"),
   title: {
-    default: "Gutter Cleaning Victoria TX | Crossroads Gutter Cleaning Victoria",
-    template: "%s | Crossroads Gutter Cleaning Victoria"
+    default: "Gutter Cleaning Victoria TX",
+    template: "%s"
   },
   description:
     "Reliable gutter cleaning Victoria TX homeowners trust. Insured local crews, downspout clearing & fast estimates. Call Crossroads Gutter Cleaning at +13615791699.",

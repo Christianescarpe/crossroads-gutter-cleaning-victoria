@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import pagesData from '@/data/pages.json';
-import { PageItem, LOCATION_URLS } from '@/lib/data';
+import { PageItem, LOCATION_URLS, cleanSeoTitle } from '@/lib/data';
 
 // Service components (Image 2 design)
 import ServiceHero from '@/components/service/ServiceHero';
@@ -37,12 +37,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Page Not Found' };
   }
 
+  const cleanedTitle = cleanSeoTitle(page.seoTitle);
+
   return {
-    title: page.seoTitle,
+    title: cleanedTitle,
     description: page.metaDescription,
     keywords: page.focusKeywords ? page.focusKeywords.split(';').map(k => k.trim()) : [],
     openGraph: {
-      title: page.seoTitle,
+      title: cleanedTitle,
       description: page.metaDescription,
       url: `https://crossroadsguttercleaningvictoria.com/${slug}`
     }

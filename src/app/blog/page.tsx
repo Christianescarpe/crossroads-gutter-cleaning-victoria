@@ -4,11 +4,17 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { ArrowRight, BookOpen, Calendar } from 'lucide-react';
 import blogsData from '@/data/blogs.json';
+import { cleanSeoTitle } from '@/lib/data';
 import BlueEstimateSection from '@/components/service/BlueEstimateSection';
 
 export const metadata: Metadata = {
-  title: 'Gutter Cleaning & Roofline Care Blog | Crossroads Gutter Cleaning Victoria',
+  title: cleanSeoTitle('Gutter Cleaning & Roofline Care Blog | Crossroads Gutter Cleaning Victoria'),
   description: 'Expert guides on gutter cleaning frequency, signs of clogged downspouts, South Texas hurricane prep, and foundation protection in Victoria, TX.',
+  openGraph: {
+    title: cleanSeoTitle('Gutter Cleaning & Roofline Care Blog | Crossroads Gutter Cleaning Victoria'),
+    description: 'Expert guides on gutter cleaning frequency, signs of clogged downspouts, South Texas hurricane prep, and foundation protection in Victoria, TX.',
+    url: 'https://crossroadsguttercleaningvictoria.com/blog'
+  }
 };
 
 // Map each post to a relevant image from our optimized image library

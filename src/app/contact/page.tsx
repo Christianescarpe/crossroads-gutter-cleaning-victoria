@@ -1,10 +1,22 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { Phone, MapPin, Clock, ArrowRight, ShieldCheck, ChevronRight, Check } from 'lucide-react';
 import pagesData from '@/data/pages.json';
-import { extractH1, stripH1 } from '@/lib/data';
+import { extractH1, stripH1, cleanSeoTitle } from '@/lib/data';
 
 const contactData = pagesData.find(p => p.url === '/contact')!;
+
+export const metadata: Metadata = {
+  title: cleanSeoTitle(contactData.seoTitle),
+  description: contactData.metaDescription,
+  keywords: contactData.focusKeywords ? contactData.focusKeywords.split(';').map(k => k.trim()) : [],
+  openGraph: {
+    title: cleanSeoTitle(contactData.seoTitle),
+    description: contactData.metaDescription,
+    url: 'https://crossroadsguttercleaningvictoria.com/contact'
+  }
+};
 
 export default function ContactPage() {
   const h1Text = extractH1(contactData.contentHtml, 'Contact Crossroads Gutter Cleaning Victoria');

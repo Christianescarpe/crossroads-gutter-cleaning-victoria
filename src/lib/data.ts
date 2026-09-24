@@ -65,6 +65,11 @@ export function stripH1(html: string): string {
   return html.replace(/<h1[^>]*>.*?<\/h1>\s*/i, '');
 }
 
+export function cleanSeoTitle(title: string): string {
+  if (!title) return '';
+  return title.split('|')[0].trim();
+}
+
 export function getHomePage(): PageItem {
   return pagesData.find(p => p.url === '/')!;
 }

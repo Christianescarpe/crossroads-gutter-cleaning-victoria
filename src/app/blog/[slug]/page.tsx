@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, ArrowLeft, Calendar, User, Phone, ShieldCheck } from 'lucide-react';
 import blogsData from '@/data/blogs.json';
-import { extractH1, stripH1 } from '@/lib/data';
+import { extractH1, stripH1, cleanSeoTitle } from '@/lib/data';
 import BlueEstimateSection from '@/components/service/BlueEstimateSection';
 
 interface PageProps {
@@ -27,12 +27,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Blog Post Not Found' };
   }
 
+  const cleanedTitle = cleanSeoTitle(post.seoTitle);
+
   return {
-    title: post.seoTitle,
+    title: cleanedTitle,
     description: post.metaDescription,
     keywords: post.focusKeywords ? post.focusKeywords.split(';').map(k => k.trim()) : [],
     openGraph: {
-      title: post.seoTitle,
+      title: cleanedTitle,
       description: post.metaDescription,
       url: `https://crossroadsguttercleaningvictoria.com/blog/${slug}`
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { getHomePage } from '@/lib/data';
+import { getHomePage, cleanSeoTitle } from '@/lib/data';
 import HeroBanner from '@/components/home/HeroBanner';
 import ServicesGrid from '@/components/home/ServicesGrid';
 import SheetContentSection from '@/components/home/SheetContentSection';
@@ -10,11 +10,11 @@ import BlogHighlights from '@/components/home/BlogHighlights';
 const homeData = getHomePage();
 
 export const metadata: Metadata = {
-  title: homeData.seoTitle,
+  title: cleanSeoTitle(homeData.seoTitle),
   description: homeData.metaDescription,
   keywords: homeData.focusKeywords.split(';').map(k => k.trim()),
   openGraph: {
-    title: homeData.seoTitle,
+    title: cleanSeoTitle(homeData.seoTitle),
     description: homeData.metaDescription,
     url: 'https://crossroadsguttercleaningvictoria.com/',
   }

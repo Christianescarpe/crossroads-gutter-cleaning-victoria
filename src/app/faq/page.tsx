@@ -1,16 +1,26 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { ChevronDown, HelpCircle, Phone, ArrowRight, ShieldCheck, ChevronRight } from 'lucide-react';
+import type { Metadata } from 'next';
+import { HelpCircle, ChevronRight } from 'lucide-react';
 import pagesData from '@/data/pages.json';
-import { extractH1, stripH1 } from '@/lib/data';
+import { extractH1, stripH1, cleanSeoTitle } from '@/lib/data';
 import BlueEstimateSection from '@/components/service/BlueEstimateSection';
+import FaqAccordion from '@/components/faq/FaqAccordion';
 
 const faqData = pagesData.find(p => p.url === '/faq')!;
 
+export const metadata: Metadata = {
+  title: cleanSeoTitle(faqData.seoTitle),
+  description: faqData.metaDescription,
+  keywords: faqData.focusKeywords ? faqData.focusKeywords.split(';').map(k => k.trim()) : [],
+  openGraph: {
+    title: cleanSeoTitle(faqData.seoTitle),
+    description: faqData.metaDescription,
+    url: 'https://crossroadsguttercleaningvictoria.com/faq'
+  }
+};
+
 export default function FAQPage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const h1Text = extractH1(faqData.contentHtml, 'Frequently Asked Gutter Cleaning Questions in Victoria, TX');
   const cleanedContent = stripH1(faqData.contentHtml);
 
@@ -67,37 +77,7 @@ export default function FAQPage() {
 
       {/* Accordion Section */}
       <section className="py-16 lg:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-4">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-            return (
-              <div
-                key={idx}
-                className="border border-gray-200 rounded-2xl overflow-hidden shadow-sm transition hover:border-[#1363DF]"
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full text-left p-6 bg-white hover:bg-gray-50 flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-[#081C38] transition cursor-pointer"
-                >
-                  <span>{faq.q}</span>
-                  <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform ${
-                      isOpen ? 'bg-[#1363DF] text-white rotate-180' : 'bg-gray-100 text-gray-500'
-                    }`}
-                  >
-                    <ChevronDown className="w-4 h-4" />
-                  </div>
-                </button>
-
-                {isOpen && (
-                  <div className="p-6 pt-0 bg-white text-gray-600 text-sm sm:text-base leading-relaxed border-t border-gray-100">
-                    <p className="mt-4">{faq.a}</p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+        <FaqAccordion faqs={faqs} />
       </section>
 
       {/* Blue Estimate Form Section */}

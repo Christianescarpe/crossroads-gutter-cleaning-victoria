@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { MapPin, ArrowRight } from 'lucide-react';
 import pagesData from '@/data/pages.json';
-import { LOCATION_URLS } from '@/lib/data';
+import { LOCATION_URLS, cleanSeoTitle } from '@/lib/data';
 
 // Homepage components (Image 1 design)
 import HeroBanner from '@/components/home/HeroBanner';
@@ -16,9 +16,14 @@ const areasData = pagesData.find(p => p.url === '/areas-we-serve')!;
 const locations = pagesData.filter(p => LOCATION_URLS.includes(p.url));
 
 export const metadata: Metadata = {
-  title: areasData.seoTitle,
+  title: cleanSeoTitle(areasData.seoTitle),
   description: areasData.metaDescription,
   keywords: areasData.focusKeywords.split(';').map(k => k.trim()),
+  openGraph: {
+    title: cleanSeoTitle(areasData.seoTitle),
+    description: areasData.metaDescription,
+    url: 'https://crossroadsguttercleaningvictoria.com/areas-we-serve'
+  }
 };
 
 export default function AreasWeServePage() {
